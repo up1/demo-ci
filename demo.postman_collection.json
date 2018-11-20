@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "bade8441-4ec0-4927-9cb1-af48c0fb3323",
+		"name": "demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9f0719aa-5435-4331-9810-f815e4a06381",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(10);",
+							"});",
+							"",
+							"pm.test(\"Data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql('Leanne Graham');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
